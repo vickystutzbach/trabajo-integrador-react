@@ -14,7 +14,7 @@ function ListaDeHeader(props) {
 
         </ul>
         <ul className="logo">
-        <img src="./img/logo.png" alt="Logo" className="logo-image"/>
+        <img src="./img/logo1.png" alt="Logo" className="logo-image"/>
             
            
         </ul>
