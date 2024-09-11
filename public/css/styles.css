@@ -5,8 +5,8 @@ nav{
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 20px;
-    background-color: #4e73df;
-    color: #fff
+    background-color: #1e3a8a;
+    color: white;
 }
 
 nav ul {
@@ -29,11 +29,18 @@ nav ul {
     font-weight: bold;
 }
 
-.user img {
-    width: 30px;
-    border-radius: 90%;
-    margin-left: 10px;
-}
+.logo {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+ }
+      
+.logo-image {
+    background-color: transparent; 
+    border: none;
+    width: 150px; 
+    height: auto;
+    }
 
 h1,h2 {
     font-weight: 400;
@@ -86,7 +93,7 @@ footer {
     background-color: #dedede;
     text-align: center;
     padding: 40px 0;
-    color: #666;
+    color: white;
     position: absolute;
     bottom: 0;
     width: 100%;

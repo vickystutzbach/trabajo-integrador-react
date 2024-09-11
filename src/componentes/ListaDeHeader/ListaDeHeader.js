@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 
-/* FALTA AGREGAR EL LOGO Y EL LINK DE FAVORITOS Y VER TODO */
+/* FALTA AGREGAR EL LINK DE FAVORITOS Y VER TODO */
 function ListaDeHeader(props) {
     return (
         <nav>
@@ -14,6 +14,7 @@ function ListaDeHeader(props) {
 
         </ul>
         <ul className="logo">
+        <img src="./img/logo.png" alt="Logo" className="logo-image"/>
             
            
         </ul>
