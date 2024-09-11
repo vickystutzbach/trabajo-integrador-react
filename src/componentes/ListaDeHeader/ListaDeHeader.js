@@ -8,8 +8,8 @@ function ListaDeHeader(props) {
         <nav>
         <ul className="main-nav">
             <li> <Link to="/">{props.home}</Link></li> 
-            <li> {props.favoritos}</li> 
-            <li> {props.vertodo}</li>
+            <li> <Link to="/favoritos">{props.favoritos}</Link></li> 
+            <li> <Link to="/vertodo">{props.vertodo}</Link></li>
 
 
         </ul>

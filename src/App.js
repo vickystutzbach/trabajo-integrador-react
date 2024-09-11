@@ -1,5 +1,5 @@
 import {Route, Switch} from 'react-router-dom/cjs/react-router-dom'
-import Home from './componentes/Home/Home';
+import Home from './componentes/screens/Home/Home';
 import NotFound from './componentes/NotFound/NotFound';
 
 function App() {

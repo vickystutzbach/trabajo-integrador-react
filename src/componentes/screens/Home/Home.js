@@ -1,6 +1,8 @@
 import React from "react";
-import Footer from "../Footer/Footer";
-import Header from "../Header/Header";
+import Footer from "../../Footer/Footer";
+import Header from "../../Header/Header";
+import SeriesPopulares from "../../SeriesPopulares/SeriesPopulares";
+
 
 
 function Home(){
@@ -10,6 +12,10 @@ function Home(){
       <header className="App-header">
         <Header/>
       </header>
+
+      <h2>Series Populares</h2>
+      
+
 
 
       <footer>
