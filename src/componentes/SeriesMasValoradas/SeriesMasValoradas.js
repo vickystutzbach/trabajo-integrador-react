@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import CardSeriesMasValoradas from "../CardSeriesMasValoradas/CardSeriesMasValoradas";
+import spinner from "../../img/spinner.gif"
 
 class SeriesMasValoradas extends Component {
     constructor (){
         super();
         this.state = {
-            seriesMasValoradas: []
+            seriesMasValoradas: [],
+            isLoading: true
     }
 }
 componentDidMount(){ 
@@ -14,21 +16,29 @@ componentDidMount(){
     .then((data) => {
         console.log(data)
         this.setState({
-            seriesMasValoradas: data.results
+            seriesMasValoradas: data.results,
+            isLoading: false
         })
     })
-    .catch(error => console.error(error))
-    }
+    .catch(error => {
+        console.error(error)
+        this.setState({isLoading: false});
+    })
+}
 
 render(){
     console.log(this.state.seriesMasValoradas)
     return (
         <div>
-            <h1>Series Mas Valoradas</h1>
+            <h1>Series Más Valoradas</h1>
             
-            {this.state.seriesMasValoradas.length === 0 ?
-            <h3>Cargando...</h3>:
-            this.state.seriesMasValoradas.slice(0, 5).map((s)=><CardSeriesMasValoradas data={s}/>)}
+            {this.state.isLoading ? (
+                <div style={{ textAlign: "center" }}>
+                    <img src={spinner} alt="Cargando..." />
+                </div>
+            ) : (
+                this.state.seriesMasValoradas.slice(0, 5).map((s) => <CardSeriesMasValoradas key={s.id} data={s}/>)
+            )}
         </div>
     ) 
 
@@ -36,4 +46,4 @@ render(){
 
 }
 
-export default SeriesMasValoradas
+export default SeriesMasValoradas;

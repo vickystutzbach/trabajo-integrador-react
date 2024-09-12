@@ -1,11 +1,13 @@
 import React, {Component} from "react";
 import CardSeriesPopulares from "../CardSeriesPopulares/CardSeriesPopulares";
+import spinner from "../../img/spinner.gif"
 
 class SeriesPopulares extends Component {
     constructor (){
         super();
         this.state = {
-            seriesPopulares: []
+            seriesPopulares: [],
+            isLoading: true
     }
 }
 componentDidMount(){
@@ -14,10 +16,13 @@ componentDidMount(){
     .then((data) => {
         console.log(data)
         this.setState({
-            seriesPopulares: data.results
+            seriesPopulares: data.results,
+            isLoading: false
         })
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+        console.error(error)
+        this.setState({isLoading: false})})
     }
 
 render(){
@@ -26,9 +31,13 @@ render(){
         <div>
             <h1>Series Populares</h1>
             
-            {this.state.seriesPopulares.length === 0 ?
-            <h3>Cargando...</h3>:
-            this.state.seriesPopulares.slice(0, 5).map((s)=><CardSeriesPopulares data={s}/>)}
+            {this.state.isLoading ? (
+                <div style={{ textAlign: "center" }}>
+                    <img src={spinner} alt="Cargando..." />
+                </div>
+            ) : (
+                this.state.seriesPopulares.slice(0, 5).map((s) => <CardSeriesPopulares key={s.id} data={s}/>)
+            )}
         </div>
     ) 
 
