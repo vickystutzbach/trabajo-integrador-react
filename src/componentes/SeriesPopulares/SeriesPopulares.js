@@ -9,7 +9,6 @@ class SeriesPopulares extends Component {
     }
 }
 componentDidMount(){
-    //tengo que cambiar la api porque es de peliculas, pero es de prueba para ver si anda. 
     fetch('https://api.themoviedb.org/3/tv/popular?api_key=761d2122b56fefad1019c61f59cfea69&language=en-US&page=1')
     .then((response) => response.json())
     .then((data) => {

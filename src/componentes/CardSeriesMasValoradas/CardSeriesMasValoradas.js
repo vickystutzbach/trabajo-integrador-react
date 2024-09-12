@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import { Link } from 'react-router-dom';
+import {Link} from "react-router-dom";
 
-class CardSeriesPopulares extends Component {
+class CardSeriesMasValoradas extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -32,10 +32,8 @@ class CardSeriesPopulares extends Component {
                         <p className='more'>
                             <Link to={`/detalle/${this.props.data.id}`}>Ir a detalle</Link>
                         </p>
-                        
+                        <section>
                         <p className='more' onClick={()=>this.esFavorito()} >Agregar a favoritos</p> 
-                        <section className={ (this.state.favorito ? "Quitar de favoritos" : "Agregar a favoritos")}>
-
                         </section>
                        
                     </article>
@@ -46,4 +44,4 @@ class CardSeriesPopulares extends Component {
 
 }  
 
-export default CardSeriesPopulares;
+export default CardSeriesMasValoradas;
