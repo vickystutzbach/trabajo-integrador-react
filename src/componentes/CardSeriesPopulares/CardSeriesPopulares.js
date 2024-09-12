@@ -7,16 +7,20 @@ class CardSeriesPopulares extends Component {
     };
     render(){
 	    return(
-	    <div>
-             <section className='cardContainer'>
-            <h2> {this.props.data.name}</h2> 
+            <section className='cardContainer'>
+                <div>
+                    <article className='character-card'>
+                    <img src={`https://image.tmdb.org/t/p/w342${this.props.data.backdrop_path}`} />
+                        <h2>{this.props.data.name} </h2>
+                        <p>{this.props.data.overview}</p>
+                   
+                       
+                    </article>
+                </div>
+            </section>
+            )
+        }
 
-
-             </section>
-
-        </div>
-        )
-    }
-    }
+}  
 
 export default CardSeriesPopulares;

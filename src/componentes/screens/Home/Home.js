@@ -12,11 +12,9 @@ function Home(){
       <header className="App-header">
         <Header/>
       </header>
-
-      <h2>Series Populares</h2>
-      
-
-
+      <main>
+      <SeriesPopulares/>
+      </main>
 
       <footer>
         <Footer/> 

@@ -10,7 +10,7 @@ class SeriesPopulares extends Component {
 }
 componentDidMount(){
     //tengo que cambiar la api porque es de peliculas, pero es de prueba para ver si anda. 
-    fetch('https://api.themoviedb.org/3/movie/550?api_key=aa7bab2a0951387ff624d304c5d79062&language=en-US&page=1')
+    fetch('https://api.themoviedb.org/3/tv/popular?api_key=761d2122b56fefad1019c61f59cfea69&language=en-US&page=1')
     .then((response) => response.json())
     .then((data) => {
         console.log(data)
@@ -29,7 +29,7 @@ render(){
             
             {this.state.seriesPopulares.length === 0 ?
             <h3>Cargando...</h3>:
-            this.state.seriesPopulares.map((s)=><CardSeriesPopulares data={s}/>)}
+            this.state.seriesPopulares.slice(0, 5).map((s)=><CardSeriesPopulares data={s}/>)}
         </div>
     ) 
 
