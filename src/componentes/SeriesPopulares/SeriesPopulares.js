@@ -36,7 +36,7 @@ render(){
                     <img src={spinner} alt="Cargando..." />
                 </div>
             ) : (
-                this.state.seriesPopulares.slice(0, 5).map((s) => <CardSeriesPopulares key={s.id} data={s}/>)
+                this.state.seriesPopulares.slice(0, 5).map((s) => <CardSeriesPopulares  data={s}/>)
             )}
         </div>
     ) 
