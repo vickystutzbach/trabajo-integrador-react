@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import CardSeriesMasValoradas from "../CardSeriesMasValoradas/CardSeriesMasValoradas";
 import spinner from "../../img/spinner.gif"
 
@@ -39,6 +40,9 @@ render(){
             ) : (
                 this.state.seriesMasValoradas.slice(0, 5).map((s) => <CardSeriesMasValoradas data={s}/>)
             )}
+                
+
+                   
         </div>
     ) 
 

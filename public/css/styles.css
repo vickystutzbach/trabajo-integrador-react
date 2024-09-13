@@ -123,6 +123,16 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 .hide{
     display: none;
 }
+/* ver todas */
+.ver-todas-link {
+    font-size: 18px;
+    color: #1e3a8a;
+    text-decoration: none;
+}
+
+.ver-todas-link:hover {
+    text-decoration: underline;
+}
 
 /* footer */
 footer {
