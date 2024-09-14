@@ -39,6 +39,9 @@ render(){
             ) : (
                 this.state.seriesPopulares.slice(0, 5).map((s) => <CardSeriesPopulares  data={s}/>)
             )}
+            <div className="character-card ver-todas-card">
+            <Link to="/ver-todo-series-populares" className="ver-todas-link"> Ver todo </Link>
+              </div>
 
         </div>
     ) 
