@@ -1,8 +1,7 @@
 import React from "react";
-import Footer from "../../Footer/Footer";
-import Header from "../../Header/Header";
-import SeriesPopulares from "../../SeriesPopulares/SeriesPopulares";
-import SeriesMasValoradas from "../../SeriesMasValoradas/SeriesMasValoradas";
+import Header from "../../componentes/Header/Header";
+import SeriesPopulares from "../../componentes/SeriesPopulares/SeriesPopulares";
+import SeriesMasValoradas from "../../componentes/SeriesMasValoradas/SeriesMasValoradas";
 
 
 

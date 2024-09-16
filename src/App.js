@@ -1,9 +1,9 @@
 import {Route, Switch} from 'react-router-dom/cjs/react-router-dom'
-import Home from './componentes/screens/Home/Home';
-import NotFound from './componentes/screens/NotFound/NotFound';
-import SearchResults from './componentes/SearchResults/SearchResults';
-import VerTodoSeriesPopulares from './componentes/screens/VerTodoSeriesPopulares/VerTodoSeriesPopulares';
-import VerTodoSeriesMasValoradas from './componentes/screens/VerTodoSeriesMasValoradas/VerTodoSeriesMasValoradas';
+import Home from '../src/screens/Home/Home';
+import NotFound from '../src/screens/NotFound/NotFound';
+import SearchResults from '../src/screens/SearchResults/SearchResults';
+import VerTodoSeriesPopulares from '../src/screens/VerTodoSeriesPopulares/VerTodoSeriesPopulares';
+import VerTodoSeriesMasValoradas from '../src/screens/VerTodoSeriesMasValoradas/VerTodoSeriesMasValoradas';
 
 
 

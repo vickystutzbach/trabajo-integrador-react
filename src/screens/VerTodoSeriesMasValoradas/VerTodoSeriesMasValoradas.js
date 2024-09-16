@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import CardSeriesMasValoradas from "../../CardSeriesMasValoradas/CardSeriesMasValoradas";
-import spinner from "../../../img/spinner.gif";
+import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
+import spinner from "../../img/spinner.gif";
 import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
 
 

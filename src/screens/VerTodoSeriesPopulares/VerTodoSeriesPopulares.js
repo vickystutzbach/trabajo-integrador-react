@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import CardSeriesPopulares from "../../CardSeriesPopulares/CardSeriesPopulares";
-import spinner from "../../../img/spinner.gif"
+import CardSeriesPopulares from "../../componentes/CardSeriesPopulares/CardSeriesPopulares";
+import spinner from "../../img/spinner.gif"
 
 
 class VerTodoSeriesPopulares extends Component { 
