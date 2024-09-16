@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 import CardSeriesMasValoradas from "../../CardSeriesMasValoradas/CardSeriesMasValoradas";
+import spinner from "../../../img/spinner.gif";
+import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
 
 
 class VerTodoSeriesMasValoradas extends Component {
     constructor (){
         super();
         this.state = {
-            verTodoSeriesMasValoradas: []
+            verTodoSeriesMasValoradas: [],
+            isLoading: true
     }
 }
 componentDidMount(){ 
@@ -15,26 +18,35 @@ componentDidMount(){
     .then((data) => {
         console.log(data)
         this.setState({
-            verTodoSeriesMasValoradas: data.results
+            verTodoSeriesMasValoradas: data.results,
+            isLoading: false
         })
     })
-    .catch(error => console.error(error))
+    .catch(error => {
+        console.error(error);
+        this.setState({isLoading: false});
+    })
     }
 
 render(){
-    console.log(this.state. verTodoSeriesMasValoradas)
+    console.log(this.state.verTodoSeriesMasValoradas)
     return (
         <div>
-            <h1>Series Mas Valoradas</h1>
+                <h1>Series Más Valoradas</h1>
 
-            {this.state. verTodoSeriesMasValoradas.length === 0 ?
-            <h3>Cargando...</h3>:
-            this.state. verTodoSeriesMasValoradas.map((s)=><CardSeriesMasValoradas data={s}/>)}
-        </div>
+                {this.state.isLoading ? (
+                    <div style={{ textAlign: "center" }}>
+                        <img src={spinner} alt="Cargando..." />
+                    </div>
+                ) : (
+                    this.state.verTodoSeriesMasValoradas.map((s) => (
+                        <CardSeriesMasValoradas data={s} />
+                    ))
+                )}
+            </div>
     ) 
 
 }
-
 }
 
 export default VerTodoSeriesMasValoradas;

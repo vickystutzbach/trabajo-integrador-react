@@ -23,4 +23,4 @@ function ListaDeHeader(props) {
     )
 }
 
-export default ListaDeHeader
+export default ListaDeHeader;
