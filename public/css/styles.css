@@ -1,54 +1,84 @@
-/* navegacion y header */
-nav{
+/* Navegación y Header */
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 20px;
-    background-color: #1e3a8a;
-    color: white;
-}
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fce4ec; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #1e3a8a; 
+    font-family: 'Poppins', sans-serif; 
 
 nav ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    gap: 20px;
 }
 
 .main-nav li,
 .user li {
-    margin: 0 10px;
+    margin: 0;
+    list-style: none;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     align-items: center;
 }
 
 .main-nav li:first-child {
     font-weight: bold;
+    font-size: 1.3em;
+    color: #1e3a8a;
 }
 
 .logo {
     list-style: none; 
     margin: 0;
     padding: 0;
- }
-      
-.logo-image {
-    background-color: transparent; 
-    border: none;
-    width: 150px; 
-    height: auto;
-    }
+}
 
-h1,h2 {
+.logo-image {
+    width: 150px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.1);
+}
+
+h1, h2 {
     font-weight: 400;
+    font-family: 'Poppins', sans-serif; 
 }
 
 h1,
 main {
     padding: 0 30px;
+}
+
+/* Buscador */
+.busqueda {
+    width: 100%;
+    border: 2px solid #1e3a8a; 
+    border-radius: 20px; 
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+    background-color: #fce4ec; 
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif; 
+}
+
+.busqueda::placeholder {
+    color: #666;
+    font-size: 14px;
+}
+
+.busqueda:focus {
+    border-color: #ad1457;
 }
 
 /* Top data */
@@ -59,25 +89,40 @@ main {
     justify-content: space-between;
     color: #666;
 }
+
 .data-detail {
     width: 32%;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 10px 30px;
+    border-radius: 8px;
+    background-color: #fce4ec; 
+    padding: 20px 30px;
     text-transform: capitalize;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
 }
+
+.data-detail:hover {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+}
+
 .data-detail p {
-    margin-top:0;
+    margin-top: 0;
 }
+
 .data-detail h4 {
     margin-bottom: 0;
 }
 
+/* Contenedor de series */
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 20px;
+    padding: 20px;
+}
 
 /* Series */
 .character-card{
@@ -86,7 +131,7 @@ main {
     padding: 10px;
     margin-bottom: 20px;
     width: 24%;
-    background: #fff;
+    background: #f8bbd0; 
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
 }
@@ -123,24 +168,33 @@ box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
 .hide{
     display: none;
 }
-/* ver todas */
+
+
+/* Ver todas */
 .ver-todas-link {
     font-size: 18px;
-    color: #1e3a8a;
+    color: #1e3a8a; 
     text-decoration: none;
+    font-weight: bold;
 }
 
 .ver-todas-link:hover {
     text-decoration: underline;
 }
 
-/* footer */
+/* Footer */
 footer {
-    background-color: #dedede;
+    background-color: #f8bbd0;
+    color: #1e3a8a;
     text-align: center;
     padding: 40px 0;
-    color: white;
-    position: absolute;
-    bottom: 0;
     width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer p {
+    margin: 0;
+    font-size: 16px;
 }

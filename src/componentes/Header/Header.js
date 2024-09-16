@@ -1,11 +1,14 @@
 import React from "react";
 import ListaDeHeader from "../ListaDeHeader/ListaDeHeader";
+import BuscarHeader from "../BuscarHeader/BuscarHeader";
 
 
 function Header() {
 
     return (
         <ListaDeHeader home="Home" favoritos="Favoritos" vertodo="Ver todo"  />
+
+    
 
 
 
