@@ -16,7 +16,7 @@ function ListaDeHeader(props) {
         <BuscarHeader/>
 
         <ul className="logo">
-        <img src="./img/logo1.png" alt="Logo" className="logo-image"/>
+        <img src="./img/logo2.png" alt="Logo" className="logo-image"/>
             
            
         </ul>

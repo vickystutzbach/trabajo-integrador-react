@@ -19,10 +19,10 @@ class BuscarHeader extends Component {
     render(){
         return (
             <form className="busqueda" onSubmit={(event)=>this.evitarSubmit(event)}>
-                <input type="text" placeholder= "Buscar series.." value={this.state.query} 
-                onChange={(event)=>this.controlarCambios(event)}/>
-                 <Link to={`/search/${this.state.query}`}>Buscar</Link>
+                <input type="text" placeholder="Buscar series..." value={this.state.query} onChange={(event)=>this.controlarCambios(event)}/>
+                <Link to={`/search/${this.state.query}`}>Buscar</Link>
             </form>
+
             );
            
         

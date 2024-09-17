@@ -1,8 +1,12 @@
 /* Fondo de la página */
 body {
-    background-color: #e0f7fa; /* Celeste claro */
+    background-color: #fce4ec; 
     margin: 0;
-    font-family: Arial, sans-serif; /* Asegúrate de que la fuente sea consistente */
+    font-family: Arial, sans-serif; 
+}
+
+h1 {
+    color: #e91e63;
 }
 
 /* Contenedor de las cards */
@@ -14,11 +18,11 @@ body {
 
 /* Cada card */
 .character-card {
-    color: #777;
+    color: #e91e63;
     font-size: 20px;
     padding: 10px;
     width: 300px; 
-    background: #b3e5fc; /* Celeste claro para las cards */
+    background: #f2c0d3; 
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
     display: flex;
@@ -51,7 +55,7 @@ body {
 
 /* Links */
 .more {
-    color: #00bcd4; /* Celeste */
+    color: palevioletred; 
     text-align: right;
 }
 
@@ -76,7 +80,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #dedede;
+    background-color: palevioletred;
     text-align: center;
     padding: 40px 0;
     color: white;
@@ -91,10 +95,10 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 5px 20px; /* Reduce el padding vertical */
-    background-color: #1e3a8a;
+    padding: 0 20px;
+    background-color: #f2c0d3; 
     color: white;
-    align-items: center; /* Alinea verticalmente los elementos */
+    height: 250px; 
 }
 
 nav ul {
@@ -102,9 +106,6 @@ nav ul {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 .main-nav li,
@@ -116,47 +117,98 @@ nav ul {
     align-items: center;
 }
 
-/* Enlaces del navbar */
-nav a {
-    color: #00bcd4; /* Celeste */
-    text-decoration: none;
-    padding: 8px 12px; /* Ajusta el padding para reducir el tamaño del botón */
-    border-radius: 5px;
-    background-color: #b3e5fc; /* Celeste claro */
-    font-size: 14px; /* Ajusta el tamaño de la fuente */
+.main-nav li:first-child {
+    font-weight: bold;
 }
 
-nav a:hover {
-    background-color: #80deea; /* Celeste un poco más claro al pasar el mouse */
+.logo {
+    list-style: none; 
+    margin: 0;
+    padding: 0;
+}
+      
+.logo-image {
+    background-color: transparent; 
+    border: none;
+    width: 150px; 
+    height: auto;
 }
 
+h1, h2 {
+    font-weight: 400;
+}
 
-/* Buscador y botón de buscar */
-.search-container {
+h1, main {
+    padding: 0 30px;
+}
+
+/* Estilo para el formulario de búsqueda */
+.busqueda {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f2c0d3; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     margin: 20px 0;
 }
 
-.search-container input[type="text"] {
+.busqueda input[type="text"] {
+    flex: 1;
     padding: 10px;
-    border: 1px solid #00bcd4; /* Borde celeste */
+    border: 1px solid #e0a1b3; 
     border-radius: 5px;
-    width: 300px; /* Ajusta el tamaño según sea necesario */
-    margin-right: 10px;
-    box-sizing: border-box;
-}
-
-.search-container button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #00bcd4; /* Celeste */
-    color: white;
-    cursor: pointer;
     font-size: 16px;
+    margin-right: 10px;
+    outline: none;
 }
 
-.search-container button:hover {
-    background-color: #00acc1; /* Celeste oscuro al pasar el mouse */
+.busqueda input[type="text"]::placeholder {
+    color: #999;
+}
+
+.busqueda a {
+    text-decoration: none;
+    background-color: #e91e63;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.busqueda a:hover {
+    background-color: #e91e63; 
+    color: #fff;
+}
+
+
+/* Top data */
+.top-data {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #e91e63;
+}
+.data-detail {
+    width: 32%;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 10px 30px;
+    text-transform: capitalize;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.data-detail p {
+    margin-top: 0;
+}
+.data-detail h4 {
+    margin-bottom: 0;
 }
