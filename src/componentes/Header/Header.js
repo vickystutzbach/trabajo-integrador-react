@@ -1,6 +1,5 @@
 import React from "react";
 import ListaDeHeader from "../ListaDeHeader/ListaDeHeader";
-import BuscarHeader from "../BuscarHeader/BuscarHeader";
 
 
 function Header() {
