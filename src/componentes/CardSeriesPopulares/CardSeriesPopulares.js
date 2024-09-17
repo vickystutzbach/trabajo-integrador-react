@@ -18,7 +18,7 @@ class CardSeriesPopulares extends Component {
     }
     render(){
 	    return(
-            <section className='cardContainer'>
+            <section className='cards-container'>
                 <div>
                     <article className='character-card'>
                     <img src={`https://image.tmdb.org/t/p/w342${this.props.data.backdrop_path}`} />
