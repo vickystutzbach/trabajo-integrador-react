@@ -29,21 +29,26 @@ componentDidMount(){
 render(){
     console.log(this.state.seriesPopulares)
     return (
-        <div>
-            <h1>Series Populares</h1>
-            
-            {this.state.isLoading ? (
-                <div style={{ textAlign: "center" }}>
-                    <img src={spinner} alt="Cargando..." />
-                </div>
-            ) : (
-                this.state.seriesPopulares.slice(0, 5).map((s) => <CardSeriesPopulares  data={s}/>)
-            )}
-            <div className="character-card ver-todas-card">
-            <Link to="/ver-todo-series-populares" className="ver-todas-link"> Ver todo </Link>
-              </div>
+    <div>
+        <h1>Series Populares</h1>
 
+        {this.state.isLoading ? (
+            <div className="loading-spinner">
+                <img src={spinner} alt="Cargando..." />
+            </div>
+        ) : (
+            <section className='cards-container'>
+                {this.state.seriesPopulares.slice(0, 5).map((s) => (
+                    <CardSeriesPopulares key={s.id} data={s} />
+                ))}
+            </section>
+        )}
+
+        <div className="character-card ver-todas-card">
+            <Link to="/ver-todo-series-populares" className="ver-todas-link"> Ver todo </Link>
         </div>
+    </div>
+
     ) 
 
 }

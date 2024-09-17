@@ -1,8 +1,6 @@
 import React, {Component} from "react";
 import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
 import spinner from "../../img/spinner.gif";
-import { FOCUSABLE_SELECTOR } from "@testing-library/user-event/dist/utils";
-
 
 class VerTodoSeriesMasValoradas extends Component {
     constructor (){
@@ -39,9 +37,11 @@ render(){
                         <img src={spinner} alt="Cargando..." />
                     </div>
                 ) : (
-                    this.state.verTodoSeriesMasValoradas.map((s) => (
-                        <CardSeriesMasValoradas data={s} />
-                    ))
+                    <section className="cards-container">
+                        {this.state.verTodoSeriesMasValoradas.map((s) => (
+                            <CardSeriesMasValoradas key={s.id} data={s} />
+                        ))}
+                    </section>
                 )}
             </div>
     ) 

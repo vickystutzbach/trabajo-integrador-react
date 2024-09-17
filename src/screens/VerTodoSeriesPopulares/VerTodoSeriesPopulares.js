@@ -27,7 +27,7 @@ componentDidMount(){
     }
 
 render(){
-    console.log(this.state. verTodoSeriesPopulares)
+    console.log(this.state.verTodoSeriesPopulares)
     return (
         <div>
         <h1>Series Populares</h1>
@@ -36,11 +36,13 @@ render(){
             <div style={{ textAlign: "center" }}>
                 <img src={spinner} alt="Cargando..." />
             </div>
-        ) : (
-            this.state.verTodoSeriesPopulares.map((s) => (
-                <CardSeriesPopulares data={s} />
-            ))
-        )}
+                ) : (
+                    <section className="cards-container">
+                        {this.state.verTodoSeriesPopulares.map((s) => (
+                            <CardSeriesPopulares key={s.id} data={s} />
+                        ))}
+                    </section>
+                )}
     </div>
     ) 
 

@@ -30,23 +30,24 @@ componentDidMount(){
 render(){
     console.log(this.state.seriesMasValoradas)
     return (
-        <div>
-            <h1>Series Más Valoradas</h1>
-            
-            {this.state.isLoading ? (
-                <div style={{ textAlign: "center" }}>
-                    <img src={spinner} alt="Cargando..." />
-                </div>
-            ) : (
-                this.state.seriesMasValoradas.slice(0, 5).map((s) => <CardSeriesMasValoradas data={s}/>)
-            )}
-            <div className="character-card ver-todas-card">
+    <div>
+        <h1>Series Más Valoradas</h1>
+        
+        {this.state.isLoading ? (
+            <div className="loading-container">
+                <img src={spinner} alt="Cargando..." />
+            </div>
+        ) : (
+            <section className="cards-container">
+                {this.state.seriesMasValoradas.slice(0, 5).map((s) => (
+                    <CardSeriesMasValoradas key={s.id} data={s} />
+                ))}
+            </section>
+        )}
+        <div className="character-card ver-todas-card">
             <Link to="/ver-todo-series-mas-valoradas" className="ver-todas-link"> Ver todo </Link>
-              </div>
-                
-
-                   
         </div>
+    </div>
     ) 
 
 }

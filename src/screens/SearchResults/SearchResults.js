@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import spinner from "../../img/spinner.gif"
 
 class SearchResults extends Component {
   state = {
@@ -34,24 +35,30 @@ class SearchResults extends Component {
     let query = this.props.match.params.query;
 
     return (
-      <div>
+        <div>
         <h1>Resultados de búsqueda para: "{query}"</h1>
         {isLoading ? (
-          <p>Cargando resultados...</p>
+            <div className="loading-container">
+                <img src={spinner} alt="Cargando..." />
+            </div>
         ) : (
-          <div className="cards-container">
-            {series && series.length > 0 ? ( 
-              series.map((serie) => (
-                <div key={serie.id} className="result-item">
-                  <img src={`https://image.tmdb.org/t/p/w200${serie.poster_path}`} alt={serie.name}/>
-                  <h3>{serie.name}</h3>
-                </div>))
-            ) : (
-              <p>No se encontraron resultados para "{query}".</p>
-            )}
-          </div>
+            <section className="cards-container">
+                {series && series.length > 0 ? (
+                    series.map((serie) => (
+                        <article key={serie.id} className="character-card">
+                            <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
+                            <h2>{serie.name}</h2>
+                            <p className="more">
+                                
+                            </p>
+                        </article>
+                    ))
+                ) : (
+                    <p>No se encontraron resultados para "{query}".</p>
+                )}
+            </section>
         )}
-      </div>
+    </div>
     );
   }
 }

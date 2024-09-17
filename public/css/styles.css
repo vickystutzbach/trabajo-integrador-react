@@ -1,11 +1,100 @@
-nav{
+/* Fondo de la página */
+body {
+    background-color: #e0f7fa; /* Celeste claro */
+    margin: 0;
+    font-family: Arial, sans-serif; /* Asegúrate de que la fuente sea consistente */
+}
+
+/* Contenedor de las cards */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 6px; 
+}
+
+/* Cada card */
+.character-card {
+    color: #777;
+    font-size: 20px;
+    padding: 10px;
+    width: 300px; 
+    background: #b3e5fc; /* Celeste claro para las cards */
+    border-radius: 5px;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    display: flex;
+    flex-direction: column;  
+    box-sizing: border-box; 
+}
+
+.character-card img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 5px 5px 0 0; 
+    margin-bottom: 10px; 
+}
+
+.character-card:hover,
+.active {
+    box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
+}
+
+.character-card p {
+    margin: 5px 0; 
+    flex-shrink: 0; 
+}
+
+.character-card h2 {
+    font-size: 18px;
+    flex-grow: 1;
+}
+
+/* Links */
+.more {
+    color: #00bcd4; /* Celeste */
+    text-align: right;
+}
+
+.delete {
+    color: red;
+    text-align: right;
+}
+
+.more:hover,
+.delete:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.show {
+    display: block;
+}
+
+.hide {
+    display: none;
+}
+
+/* Footer */
+footer {
+    background-color: #dedede;
+    text-align: center;
+    padding: 40px 0;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navbar */
+nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 5px 20px; /* Reduce el padding vertical */
     background-color: #1e3a8a;
     color: white;
+    align-items: center; /* Alinea verticalmente los elementos */
 }
 
 nav ul {
@@ -13,6 +102,9 @@ nav ul {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .main-nav li,
@@ -24,113 +116,47 @@ nav ul {
     align-items: center;
 }
 
-.main-nav li:first-child {
-    font-weight: bold;
-}
-
-.logo {
-    list-style: none; 
-    margin: 0;
-    padding: 0;
- }
-      
-.logo-image {
-    background-color: transparent; 
-    border: none;
-    width: 150px; 
-    height: auto;
-    }
-
-h1,h2 {
-    font-weight: 400;
-}
-
-h1,
-main {
-    padding: 0 30px;
-}
-
-/* Top data */
-.top-data {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    color: #666;
-}
-.data-detail {
-    width: 32%;
-    border-radius: 4px;
-    background-color: #fff;
-    padding: 10px 30px;
-    text-transform: capitalize;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.data-detail p {
-    margin-top:0;
-}
-.data-detail h4 {
-    margin-bottom: 0;
-}
-
-
-/* Series */
-.character-card{
-    color: #777;
-    font-size: 20px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 24%;
-    background: #fff;
+/* Enlaces del navbar */
+nav a {
+    color: #00bcd4; /* Celeste */
+    text-decoration: none;
+    padding: 8px 12px; /* Ajusta el padding para reducir el tamaño del botón */
     border-radius: 5px;
-    box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15);
+    background-color: #b3e5fc; /* Celeste claro */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
 }
 
-.character-card img{
-    width: 100%;
-    margin-bottom: 20px; 
-}
-.character-card:hover,
-.active{
-box-shadow: 0rem 0rem 10px 8px rgb(58 59 69 / 25%);
-}
-.character-card p {
-    margin: 3px 0;
-}
-.character-card h2 {
-    margin: 2px 0;
-}
-.more{
-    color: blue;
-    text-align: right;
-}
-.delete {
-    color: red;
-    text-align: right;
-}
-.more:hover,
-.delete:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-.show{
-    display: block;
-}
-.hide{
-    display: none;
+nav a:hover {
+    background-color: #80deea; /* Celeste un poco más claro al pasar el mouse */
 }
 
-/* footer */
-footer {
-    background-color: #dedede;
-    text-align: center;
-    padding: 40px 0;
+
+/* Buscador y botón de buscar */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #00bcd4; /* Borde celeste */
+    border-radius: 5px;
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bcd4; /* Celeste */
     color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-container button:hover {
+    background-color: #00acc1; /* Celeste oscuro al pasar el mouse */
 }
