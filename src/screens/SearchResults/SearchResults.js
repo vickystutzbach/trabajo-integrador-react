@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import spinner from "../../img/spinner.gif"
 
+
 class SearchResults extends Component {
   state = {
     series: [], // Inicializamos como un array vacío
@@ -57,10 +58,12 @@ class SearchResults extends Component {
                     <p>No se encontraron resultados para "{query}".</p>
                 )}
             </section>
+          
         )}
     </div>
     );
-  }
+
+  }  
 }
 
 export default SearchResults;
