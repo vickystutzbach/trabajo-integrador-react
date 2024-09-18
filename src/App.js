@@ -5,6 +5,7 @@ import SearchResults from '../src/screens/SearchResults/SearchResults';
 import VerTodoSeriesPopulares from '../src/screens/VerTodoSeriesPopulares/VerTodoSeriesPopulares';
 import VerTodoSeriesMasValoradas from '../src/screens/VerTodoSeriesMasValoradas/VerTodoSeriesMasValoradas';
 import DetalleDeSerie from './screens/DetalleDeSeries/DetalleDeSeries';
+import Favoritos from './screens/Favoritos/Favoritos';
 
 
 
@@ -19,6 +20,7 @@ function App() {
     <Route path="/ver-todo-series-populares" component={VerTodoSeriesPopulares} />
     <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMasValoradas} />
     <Route path= "/detalle/:id" component= {DetalleDeSerie}/>
+    <Route path="/favoritos" component={Favoritos} />
     <Route path="/" component={NotFound}/>
 
     </Switch>

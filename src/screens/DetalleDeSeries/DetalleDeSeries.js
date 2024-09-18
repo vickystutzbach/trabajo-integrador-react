@@ -1,54 +1,99 @@
-import React, { Component } from "react";
-
+import React, { Component } from 'react';
 
 class DetalleDeSerie extends Component {
     constructor (){
         super();
         this.state = {
-            DetalleDeSerie: [],
-            isLoading: true
+            DetalleDeSerie: {},
+            isLoading: true,
+            textoFav: 'Agregar a Favoritos',  
+        };
     }
-}
-componentDidMount(){ 
-    fetch(`https://api.themoviedb.org/3/tv/${ this.props.match.params.id}?api_key=761d2122b56fefad1019c61f59cfea69`)
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        this.setState({
-            DetalleDeSerie: data,
-            isLoading: false
+
+    componentDidMount(){ 
+        // Obtener detalles de la serie
+        fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}?api_key=761d2122b56fefad1019c61f59cfea69`)
+        .then((response) => response.json())
+        .then((data) => {
+            this.setState({
+                DetalleDeSerie: data,
+                isLoading: false,
+                textoFav: this.checkIfFavorito(data.id) ? 'Sacar de Favoritos' : 'Agregar a Favoritos'  
+            });
         })
-    })
-    .catch(error => {
-        console.error(error);
-        this.setState({isLoading: false});
-    })
-}
+        .catch(error => {
+            console.error(error);
+            this.setState({ isLoading: false });
+        });
+    }
 
+    checkIfFavorito(id) {
+        const storage = localStorage.getItem('fav');
+        if (storage !== null) {
+            const favParseados = JSON.parse(storage);
+            return favParseados.includes(id);
+        }
+        return false;
+    }
 
-render (){
-    console.log(this.state.DetalleDeSerie)
-    return(
-           
-        <React.Fragment>
-             {this.state.DetalleDeSerie.isLoading ? 'Cargando' : 
-             <React.Fragment>
-            <h1>{this.state.DetalleDeSerie.name}</h1>
-            <img src={`https://image.tmdb.org/t/p/w500${this.state.DetalleDeSerie.poster_path}`} alt={this.state.DetalleDeSerie.name} />
-            <p><strong>Calificación:</strong> {this.state.DetalleDeSerie.vote_average}</p>
-            <p><strong>Fecha de estreno:</strong> {this.state.DetalleDeSerie.first_air_date}</p>
-            <p><strong>Sinópsis:</strong> {this.state.DetalleDeSerie.overview}</p>
-            <p><strong>Género:</strong> {this.state.DetalleDeSerie.genres.map(genre => <p>{genre.name}</p>)}</p>
-            <button onClick={this.state.DetalleDeSerie.agregarAFavoritos}>
-            {this.state.DetalleDeSerie.isFavorito ? 'Eliminar de Favoritos' : 'Agregar a Favoritos'}
-            </button>
+    agregarFav(id) {
+        let storage = localStorage.getItem('fav');
+        let arrayFav = [];
+
+        if (storage !== null) {
+            const favParseados = JSON.parse(storage);
+            arrayFav = [...favParseados, id];
+        } else {
+            arrayFav = [id];
+        }
+
+        const arrayStringificado = JSON.stringify(arrayFav);
+        localStorage.setItem('fav', arrayStringificado);
+        this.setState({ textoFav: 'Sacar de Favoritos' });
+    }
+
+    sacarFav(id) {
+        let storage = localStorage.getItem('fav');
+        if (storage !== null) {
+            const favParseados = JSON.parse(storage);
+            const nuevoArrayFav = favParseados.filter(elem => elem !== id);
+            const nuevoArrayString = JSON.stringify(nuevoArrayFav);
+            localStorage.setItem('fav', nuevoArrayString);
+            this.setState({ textoFav: 'Agregar a Favoritos' });
+        }
+    }
+
+    toggleFavorito = () => {
+        const { id } = this.state.DetalleDeSerie;
+
+        if (this.state.textoFav === 'Agregar a Favoritos') {
+            this.agregarFav(id);
+        } else {
+            this.sacarFav(id);
+        }
+    }
+
+    render() {
+        const { DetalleDeSerie, isLoading, textoFav } = this.state;
+
+        return (
+            <React.Fragment>
+                {isLoading ? 'Cargando...' : 
+                <React.Fragment>
+                    <h1>{DetalleDeSerie.name}</h1>
+                    <img src={`https://image.tmdb.org/t/p/w500${DetalleDeSerie.poster_path}`} alt={DetalleDeSerie.name} />
+                    <p><strong>Calificación:</strong> {DetalleDeSerie.vote_average}</p>
+                    <p><strong>Fecha de estreno:</strong> {DetalleDeSerie.first_air_date}</p>
+                    <p><strong>Sinópsis:</strong> {DetalleDeSerie.overview}</p>
+                    
+                    <button onClick={this.toggleFavorito}>
+                        {textoFav}
+                    </button>
+                </React.Fragment>
+                }
             </React.Fragment>
-            }
-        </React.Fragment>
-)
-}
-
-
+        );
+    }
 }
 
 export default DetalleDeSerie;
