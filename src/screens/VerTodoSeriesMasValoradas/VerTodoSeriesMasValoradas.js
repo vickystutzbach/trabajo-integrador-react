@@ -1,36 +1,52 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
 import spinner from "../../img/spinner.gif";
+import FiltroSeriesMasValoradas from "../../componentes/FIltro/FiltroSeriesMasValoradas";
 
 class VerTodoSeriesMasValoradas extends Component {
-    constructor (){
+    constructor() {
         super();
         this.state = {
             verTodoSeriesMasValoradas: [],
-            isLoading: true
-    }
-}
-componentDidMount(){ 
-    fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=761d2122b56fefad1019c61f59cfea69')
-    .then((response) => response.json())
-    .then((data) => {
-        console.log(data)
-        this.setState({
-            verTodoSeriesMasValoradas: data.results,
-            isLoading: false
-        })
-    })
-    .catch(error => {
-        console.error(error);
-        this.setState({isLoading: false});
-    })
+            isLoading: true,
+            backup: []
+        };
     }
 
-render(){
-    console.log(this.state.verTodoSeriesMasValoradas)
-    return (
-        <div>
+    componentDidMount() {
+        fetch(
+            "https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=761d2122b56fefad1019c61f59cfea69"
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                this.setState({
+                    verTodoSeriesMasValoradas: data.results,
+                    backup: data.results,
+                    isLoading: false
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                this.setState({ isLoading: false });
+            });
+    }
+
+    filtrarSeriesMasValoradas(serie) {
+        let seriesFiltradas = this.state.backup.filter((s) =>
+            s.name
+                ? s.name.toLowerCase().includes(serie.toLowerCase())
+                : s.original_name.toLowerCase().includes(serie.toLowerCase())
+        );
+        this.setState({
+            verTodoSeriesMasValoradas: seriesFiltradas
+        });
+    }
+
+    render() {
+        return (
+            <div>
                 <h1>Series Más Valoradas</h1>
+                <FiltroSeriesMasValoradas filtrarSeriesMasValoradas={(serie) => this.filtrarSeriesMasValoradas(serie)}/>
 
                 {this.state.isLoading ? (
                     <div style={{ textAlign: "center" }}>
@@ -44,9 +60,8 @@ render(){
                     </section>
                 )}
             </div>
-    ) 
-
-}
+        );
+    }
 }
 
 export default VerTodoSeriesMasValoradas;
