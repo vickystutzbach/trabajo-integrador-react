@@ -24,8 +24,8 @@ class FiltroSeriesPopulares extends Component{
 
     render(){
         return(
-            <form onSubmit={(event)=>this.evitarSubmit(event)}>
-                <input type="text" placeholder="Escribir serie" 
+            <form className="filtro" onSubmit={(event)=>this.evitarSubmit(event)}>
+                <input className="filtrar" type="text" placeholder="Escribir serie" 
                 onChange={(event)=>this.controladorDeCambios(event)} value={this.state.valorInput}/>
             </form>
         )
