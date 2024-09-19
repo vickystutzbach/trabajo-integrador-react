@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
-import spinner from "../../img/spinner.gif";
+import spinner from "../../img/download.gif";
 import FiltroSeriesMasValoradas from "../../componentes/FIltro/FiltroSeriesMasValoradas";
 
 class VerTodoSeriesMasValoradas extends Component {

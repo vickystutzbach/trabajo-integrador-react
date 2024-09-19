@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import spinner from "../../img/spinner.gif"
+import spinner from "../../img/download.gif"
 
 
 class SearchResults extends Component {

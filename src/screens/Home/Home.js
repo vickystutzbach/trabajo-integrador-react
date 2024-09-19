@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../componentes/Header/Header";
-
 import SeriesPopulares from "../../componentes/SeriesPopulares/SeriesPopulares";
 import SeriesMasValoradas from "../../componentes/SeriesMasValoradas/SeriesMasValoradas";
 

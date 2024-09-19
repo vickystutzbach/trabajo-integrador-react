@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import CardSeriesPopulares from "../CardSeriesPopulares/CardSeriesPopulares";
-import spinner from "../../img/spinner.gif"
+import spinner from "../../img/download.gif"
 
 class SeriesPopulares extends Component {
     constructor (){
