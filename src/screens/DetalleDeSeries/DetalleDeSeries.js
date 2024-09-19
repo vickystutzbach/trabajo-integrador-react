@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import spinner from "../../img/download.gif";
 
 class DetalleDeSerie extends Component {
     constructor (){
@@ -11,8 +12,9 @@ class DetalleDeSerie extends Component {
     }
 
     componentDidMount(){ 
+        const { id } = this.props.match.params; // Obtengo el id de las props
         // Obtener detalles de la serie
-        fetch(`https://api.themoviedb.org/3/tv/${this.props.match.params.id}?api_key=761d2122b56fefad1019c61f59cfea69`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=761d2122b56fefad1019c61f59cfea69`)
         .then((response) => response.json())
         .then((data) => {
             this.setState({
@@ -78,8 +80,12 @@ class DetalleDeSerie extends Component {
 
         return (
             <React.Fragment>
-                {isLoading ? 'Cargando...' : 
-                <React.Fragment>
+            {isLoading ? (
+                <div style={{ textAlign: "center" }}>
+                    <img src={spinner} alt="Cargando..." />
+                </div>
+            ) : (
+                <section>
                     <h1>{DetalleDeSerie.name}</h1>
                     <img src={`https://image.tmdb.org/t/p/w500${DetalleDeSerie.poster_path}`} alt={DetalleDeSerie.name} />
                     <p><strong>Calificación:</strong> {DetalleDeSerie.vote_average}</p>
@@ -89,8 +95,8 @@ class DetalleDeSerie extends Component {
                     <button onClick={this.toggleFavorito}>
                         {textoFav}
                     </button>
-                </React.Fragment>
-                }
+                </section>
+            )}
             </React.Fragment>
         );
     }
