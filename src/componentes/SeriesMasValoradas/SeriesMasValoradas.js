@@ -13,6 +13,10 @@ class SeriesMasValoradas extends Component {
     }
 }
 componentDidMount(){ 
+    if (!localStorage.getItem("Favoritos")){
+        localStorage.setItem("Favoritos", JSON.stringify([]))
+    };
+    
     fetch('https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=1&api_key=761d2122b56fefad1019c61f59cfea69')
     .then((response) => response.json())
     .then((data) => {

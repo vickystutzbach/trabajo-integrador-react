@@ -4,7 +4,6 @@ import DetalleDeSeries from "../../componentes/DetalleDeSeries/DetalleDeSeries"
 import Footer from "../../componentes/Footer/Footer";
 
 
-
 function Detalle(props){
     return(
         <React.Fragment>

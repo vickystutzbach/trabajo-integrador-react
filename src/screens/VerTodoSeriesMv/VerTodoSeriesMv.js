@@ -4,7 +4,6 @@ import VerTodoSeriesMasValoradas from "../../componentes/VerTodoSeriesMasValorad
 import Footer from "../../componentes/Footer/Footer";
 
 
-
 function VerTodoSeriesMv(props){
     return(
         <React.Fragment>
