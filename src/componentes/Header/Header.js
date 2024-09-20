@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import BuscarHeader from "../BuscarHeader/BuscarHeader";
 
-class ListaDeHeader extends Component {
+class Header extends Component {
     constructor() {
         super();
         this.state = {
@@ -41,5 +41,5 @@ class ListaDeHeader extends Component {
     }
     }
 
-export default ListaDeHeader;
+export default Header;
 

@@ -41,7 +41,7 @@ render(){
         ) : (
             <section className="cards-container">
                 {this.state.seriesMasValoradas.slice(0, 5).map((s) => (
-                    <CardSeriesMasValoradas key={s.id} data={s} />
+                    <CardSeriesMasValoradas data={s} />
                 ))}
             </section>
         )}

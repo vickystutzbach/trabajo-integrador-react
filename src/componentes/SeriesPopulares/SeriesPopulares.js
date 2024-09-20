@@ -39,7 +39,7 @@ render(){
         ) : (
             <section className='cards-container'>
                 {this.state.seriesPopulares.slice(0, 5).map((s) => (
-                    <CardSeriesPopulares key={s.id} data={s} />
+                    <CardSeriesPopulares  data={s} />
                 ))}
             </section>
         )}

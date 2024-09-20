@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
+import CardSeriesMasValoradas from "../CardSeriesMasValoradas/CardSeriesMasValoradas";
 import spinner from "../../img/download.gif";
-import FiltroSeriesMasValoradas from "../../componentes/FIltro/FiltroSeriesMasValoradas";
+import FiltroSeriesMasValoradas from "../FIltro/FiltroSeriesMasValoradas";
 
 class VerTodoSeriesMasValoradas extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             verTodoSeriesMasValoradas: [],
             isLoading: true,

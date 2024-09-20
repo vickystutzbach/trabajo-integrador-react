@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"; // Para permitir la navegación al deta
 import spinner from "../../img/download.gif"
 
 class Favoritos extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             favoritos: [],
             isLoading: true, 

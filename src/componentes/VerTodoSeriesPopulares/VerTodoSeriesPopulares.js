@@ -4,8 +4,8 @@ import spinner from "../../img/download.gif";
 import FiltroSeriesPopulares from "../../componentes/FIltro/FIltroSeriesPopulares";
 
 class VerTodoSeriesPopulares extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             verTodoSeriesPopulares: [],
             isLoading: true,

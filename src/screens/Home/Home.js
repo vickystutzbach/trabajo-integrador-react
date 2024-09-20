@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../componentes/Header/Header";
 import SeriesPopulares from "../../componentes/SeriesPopulares/SeriesPopulares";
 import SeriesMasValoradas from "../../componentes/SeriesMasValoradas/SeriesMasValoradas";
+import Footer from "../../componentes/Footer/Footer";
 
 
 
@@ -17,12 +18,9 @@ function Home(){
       <SeriesPopulares/>
       <SeriesMasValoradas/>
       </main>
+
+      <Footer/>
       
-
-
-      
-
-
 
     </div>
  

@@ -3,10 +3,13 @@ import spinner from "../../img/download.gif"
 
 
 class SearchResults extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     series: [], // Inicializamos como un array vacío
     isLoading: false,
   };
+}
 
   componentDidMount() {
     let query = this.props.match.params.query;
@@ -30,6 +33,7 @@ class SearchResults extends Component {
         });
     }
   }
+
 
   render() {
     let { series, isLoading } = this.state;
