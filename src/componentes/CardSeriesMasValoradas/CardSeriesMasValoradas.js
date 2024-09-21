@@ -7,39 +7,60 @@ class CardSeriesMasValoradas extends Component {
         this.state = {
             series: props.data,
             verMas: false,
-            textoFav: "Agregar a favoritos"
+            textoFav: "Agregar a favoritos",
+            esFav: false
+
         };
+    }
+    componentDidMount(){
+        let seriesMv = localStorage.getItem("fav")
+        if(seriesMv !== null){
+            let favParseados = JSON.parse(seriesMv)
+            let estaEnFav = favParseados.includes(this.props.data.id)
+            if(estaEnFav){
+                this.setState({
+                    textoFav: "sacar de favoritos",
+                    esFav: true
+                })
+            }
+        }
     }
 
     alternarVisibilidad() {
         this.setState({ verMas: !this.state.verMas });
     }
-
-    agregarFavorito() {
-        let seriesPopulares = localStorage.getItem('Favoritos');
-        let arraySeriesPopulares = JSON.parse(seriesPopulares) || []; 
-
-        if (arraySeriesPopulares.filter((series) => series.id === this.state.series.id).length === 0) {
-            arraySeriesPopulares.push(this.state.series);
-            localStorage.setItem('Favoritos', JSON.stringify(arraySeriesPopulares));
-            this.setState({
-                textoFav: "Eliminar de favoritos"
-            });
+    
+    agregarFav(id){
+        let seriesMv = localStorage.getItem("fav")
+        if(seriesMv !== null){
+            let favParseados = JSON.parse(seriesMv)
+            favParseados.push(id)
+            let favStringificado = JSON.stringify(favParseados)
+            localStorage.setItem("fav", favStringificado)
         } else {
-            let nuevoArrayFav = arraySeriesPopulares.filter((series) => series.id !== this.state.series.id);
-            localStorage.setItem('Favoritos', JSON.stringify(nuevoArrayFav));
-
-            this.setState({
-                textoFav: "Agregar a favoritos"
-            });
+            let arrayFav = [id]
+            let arrayStringificado = JSON.stringify(arrayFav)
+            localStorage.setItem("fav", arrayStringificado)
         }
+        this.setState({
+            textoFav: "sacar de favoritos",
+            esFav: true
+        })
+    }
+
+    sacarFav(id){
+        let seriesMv = localStorage.getItem("fav")
+        let favParseados = JSON.parse(seriesMv)
+        let nuevoArrayFav = favParseados.filter(elem => elem !== id)
+        let nuevoArrayString = JSON.stringify(nuevoArrayFav)
+        localStorage.setItem("fav",nuevoArrayString)
+        this.setState({
+            textoFav: "agregar a favoritos",
+            esFav: false
+        })
     }
 
     render() {
-        let seriesPopulares = localStorage.getItem('Favoritos');
-        let arraySeriesPopulares = JSON.parse(seriesPopulares) || []; 
-        const isFavorite = arraySeriesPopulares.filter(serie => serie.id === this.state.series.id).length > 0;
-
         return (
             <section className='cards-container'>
                 <div>
@@ -54,8 +75,8 @@ class CardSeriesMasValoradas extends Component {
                         <p className='more'>
                             <Link to={`/detalle/${this.props.data.id}`}>Ir a detalle</Link>
                         </p>
-                        <section>
-                            <button onClick={() => this.agregarFavorito()}>{isFavorite ? "Eliminar de favoritos" : "Agregar a favoritos"}</button>
+                        <section  className="boton-agregar-favs">
+                        <button onClick={this.state.esFav ? ()=>this.sacarFav(this.props.data.id) : ()=>this.agregarFav(this.props.data.id)}>{this.state.textoFav}</button>
                         </section>
                     </article>
                 </div>
