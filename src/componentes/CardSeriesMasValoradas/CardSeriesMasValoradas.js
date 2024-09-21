@@ -19,7 +19,7 @@ class CardSeriesMasValoradas extends Component {
             let estaEnFav = favParseados.includes(this.props.data.id)
             if(estaEnFav){
                 this.setState({
-                    textoFav: "sacar de favoritos",
+                    textoFav: "Sacar de favoritos",
                     esFav: true
                 })
             }
@@ -43,7 +43,7 @@ class CardSeriesMasValoradas extends Component {
             localStorage.setItem("fav", arrayStringificado)
         }
         this.setState({
-            textoFav: "sacar de favoritos",
+            textoFav: "Sacar de favoritos",
             esFav: true
         })
     }
@@ -55,7 +55,7 @@ class CardSeriesMasValoradas extends Component {
         let nuevoArrayString = JSON.stringify(nuevoArrayFav)
         localStorage.setItem("fav",nuevoArrayString)
         this.setState({
-            textoFav: "agregar a favoritos",
+            textoFav: "Agregar a favoritos",
             esFav: false
         })
     }

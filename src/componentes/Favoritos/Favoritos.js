@@ -42,7 +42,7 @@ class Favoritos extends Component {
             const favParseados = JSON.parse(storage);
             const nuevoArrayFav = favParseados.filter(elem => elem !== id);
             localStorage.setItem('fav', JSON.stringify(nuevoArrayFav));
-            this.cargarFavoritos(); // Recarga la lista actualizada
+            this.cargarFavoritos(); 
         }
     }
 
