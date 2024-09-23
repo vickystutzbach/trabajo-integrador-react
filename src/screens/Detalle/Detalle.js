@@ -6,6 +6,8 @@ import Footer from "../../componentes/Footer/Footer";
 
 function Detalle(props){
     const { id } = props.match.params;
+    console.log(props);
+    
     return(
         <React.Fragment>
             <Header/>

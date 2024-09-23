@@ -13,6 +13,8 @@ class SearchResults extends Component {
 
   componentDidMount() {
     let query = this.props.query;
+    console.log(query);
+    
 
     if (query) {
       this.setState({ isLoading: true });
