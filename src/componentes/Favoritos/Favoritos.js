@@ -70,9 +70,11 @@ class Favoritos extends Component {
                                         />
                                         <h3>{serie.name}</h3>
                                     </Link>
+                                    <section  className="boton-agregar-favs-pag">
                                     <button onClick={() => this.eliminarDeFavoritos(serie.id)}>
                                         Eliminar de Favoritos
                                     </button>
+                                    </section>
                                 </div>
                             ))
                         )}
