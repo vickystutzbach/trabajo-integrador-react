@@ -14,6 +14,7 @@ import "./App.css"
 function App() {
   return (
     <Switch>
+
     <Route path="/" exact={true} component={Home}/>
     <Route path="/search/:query" component={SearchR} />
     <Route path="/ver-todo-series-populares" component={VerTodoSeriesP} />
@@ -21,6 +22,7 @@ function App() {
     <Route path= "/detalle/:id" component= {Detalle}/>
     <Route path="/favoritos" component={Favoritos} />
     <Route path="/" component={NotFound}/>
+    
     </Switch>
   );
 }

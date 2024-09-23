@@ -6,7 +6,9 @@ import Footer from "../../componentes/Footer/Footer";
 
 
 function SearchR(props){
-    const { query } = props.match.params;
+    const { query } = props.match.params.query;
+    console.log(props);
+    
     return(
         <React.Fragment>
             <Header/>
