@@ -12,7 +12,7 @@ class DetalleDeSerie extends Component {
     }
 
     componentDidMount(){ 
-        const id  = this.props.id// Obtener detalles de la serie   
+        const id  = this.props.id // Obtener detalles de la serie   
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=761d2122b56fefad1019c61f59cfea69`)
         .then((response) => response.json())
         .then((data) => {
@@ -43,7 +43,7 @@ class DetalleDeSerie extends Component {
 
         if (storage !== null) {
             const favParseados = JSON.parse(storage);
-            arrayFav = [...favParseados, id];
+            arrayFav = favParseados.concat(id);
         } else {
             arrayFav = [id];
         }
@@ -75,11 +75,11 @@ class DetalleDeSerie extends Component {
     }
 
     render() {
-        const { DetalleDeSerie, isLoading, textoFav } = this.state;
+       
 
         return (
             <React.Fragment>
-            {isLoading ? (
+            {this.state.isLoading ? (
                 <div style={{ textAlign: "center" }}>
                     <img src={spinner} alt="Cargando..." />
                 </div>
@@ -88,17 +88,17 @@ class DetalleDeSerie extends Component {
 
                     <div>
                         <h1>{DetalleDeSerie.name}</h1>
-                        <img className="detalle-poster" src={`https://image.tmdb.org/t/p/w500${DetalleDeSerie.poster_path}`} alt={DetalleDeSerie.name} />
+                        <img className="detalle-poster" src={`https://image.tmdb.org/t/p/w500${this.state.DetalleDeSerie.poster_path}`} alt={DetalleDeSerie.name} />
                     </div>
                         <div className="detalle-info">
                    
                     
-                        <p><strong>Calificación:</strong> {DetalleDeSerie.vote_average}</p>
-                        <p><strong>Fecha de estreno:</strong> {DetalleDeSerie.first_air_date}</p>
-                        <p><strong>Sinópsis:</strong> {DetalleDeSerie.overview}</p>
+                        <p><strong>Calificación:</strong> {this.state.DetalleDeSerie.vote_average}</p>
+                        <p><strong>Fecha de estreno:</strong> {this.state.DetalleDeSerie.first_air_date}</p>
+                        <p><strong>Sinópsis:</strong> {this.state.DetalleDeSerie.overview}</p>
                         <p><strong>Género:</strong> 
                         <ul>
-                        {DetalleDeSerie.genres.map(genre => <li>{genre.name}</li>)}
+                        {this.state.DetalleDeSerie.genres.map(genre => <li>{genre.name}</li>)}
                         </ul>
                         </p>
 
@@ -106,7 +106,7 @@ class DetalleDeSerie extends Component {
 
                         <section  className="boton-agregar-favs">    
                             <button onClick={this.toggleFavorito}>
-                                {textoFav}
+                                {this.state.textoFav}
                             </button>
                         </section>
 
