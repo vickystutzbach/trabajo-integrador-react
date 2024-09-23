@@ -6,10 +6,11 @@ import Footer from "../../componentes/Footer/Footer";
 
 
 function SearchR(props){
+    const { query } = props.match.params;
     return(
         <React.Fragment>
             <Header/>
-            <SearchResults/>
+            <SearchResults query ={query}/>
             <Footer/>          
         </React.Fragment>
     )

@@ -5,10 +5,11 @@ import Footer from "../../componentes/Footer/Footer";
 
 
 function Detalle(props){
+    const { id } = props.match.params;
     return(
         <React.Fragment>
             <Header/>
-            <DetalleDeSeries/>
+            <DetalleDeSeries id= {id}/>
             <Footer/>          
         </React.Fragment>
     )

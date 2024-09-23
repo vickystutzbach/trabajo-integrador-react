@@ -203,7 +203,6 @@ h1, main {
     display: flex;
     flex-direction: column;  
     box-sizing: border-box; 
-    height: fit-content;
 }
 
 .character-card img {
@@ -288,21 +287,22 @@ h1, main {
 }
 
 .boton-agregar-favs button {
-    background-color: #e91e63; 
-    color: pink; 
+    background-color: #e91e63; /* Color de fondo */
+    color: pink; /* Color del texto */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
-    font-weight: bold; 
+    font-weight: bold; /* Negrita */
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .boton-agregar-favs button:hover {
-    background-color: #c2185b; 
-    color: pink; 
+    background-color: #c2185b; /* Color de fondo al pasar el ratón */
+    color: pink; /* Color del texto al pasar el ratón */
 }
+
   
 /* filtro */
 .filtro {
@@ -363,10 +363,5 @@ footer {
     text-align: center;
     padding: 40px 0;
     color: white;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 }
-
-
-

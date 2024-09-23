@@ -7,7 +7,7 @@ import SearchR from './screens/SearchR/SearchR';
 import VerTodoSeriesMv from './screens/VerTodoSeriesMv/VerTodoSeriesMv';
 import VerTodoSeriesP from './screens/VerTodoSeriesP/VerTodoSeriesP';
 import SearchResults from './componentes/SearchResults/SearchResults';
-import DetalleDeSerie from './componentes/DetalleDeSeries/DetalleDeSeries';
+import "./App.css"
 
 
 
@@ -15,10 +15,10 @@ function App() {
   return (
     <Switch>
     <Route path="/" exact={true} component={Home}/>
-    <Route path="/search/:query" component={SearchResults} />
+    <Route path="/search/:query" component={SearchR} />
     <Route path="/ver-todo-series-populares" component={VerTodoSeriesP} />
     <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMv} />
-    <Route path= "/detalle/:id" component= {DetalleDeSerie}/>
+    <Route path= "/detalle/:id" component= {Detalle}/>
     <Route path="/favoritos" component={Favoritos} />
     <Route path="/" component={NotFound}/>
     </Switch>

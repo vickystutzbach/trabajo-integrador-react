@@ -12,7 +12,7 @@ class SearchResults extends Component {
   }
 
   componentDidMount() {
-    let query = this.props.match.params.query;
+    let query = this.props.query;
 
     if (query) {
       this.setState({ isLoading: true });

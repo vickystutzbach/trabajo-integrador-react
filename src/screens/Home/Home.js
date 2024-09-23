@@ -19,6 +19,8 @@ function Home(){
       <SeriesMasValoradas/>
       </main>
 
+      <Footer/>
+
 
       
 
