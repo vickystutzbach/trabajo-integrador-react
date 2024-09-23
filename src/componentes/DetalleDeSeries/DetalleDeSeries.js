@@ -90,11 +90,15 @@ class DetalleDeSerie extends Component {
                     <p><strong>Calificación:</strong> {DetalleDeSerie.vote_average}</p>
                     <p><strong>Fecha de estreno:</strong> {DetalleDeSerie.first_air_date}</p>
                     <p><strong>Sinópsis:</strong> {DetalleDeSerie.overview}</p>
-                    
+               
+
+                <section  className="boton-agregar-favs">    
                     <button onClick={this.toggleFavorito}>
                         {textoFav}
                     </button>
                 </section>
+                </section>
+                
             )}
             </React.Fragment>
         );

@@ -12,13 +12,13 @@ class Favoritos extends Component {
     }
 
     componentDidMount() {
-        this.cargarFavoritos();
+        this.cargarFavoritos(); // obtiene las series favs desde localstorage
     }
 
     cargarFavoritos() {
         const storage = localStorage.getItem('fav');
         if (storage !== null) {
-            const favParseados = JSON.parse(storage);
+            const favParseados = JSON.parse(storage); //a los favs guardados los convierte en un array
             Promise.all(favParseados.map(id =>
                 fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=761d2122b56fefad1019c61f59cfea69`)
                 .then(response => response.json())
