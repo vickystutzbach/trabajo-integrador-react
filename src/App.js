@@ -1,29 +1,38 @@
 import {Route, Switch} from 'react-router-dom/cjs/react-router-dom'
-import Detalle from './screens/Detalle/Detalle';
-import Favoritos from './screens/Favs/Favs'
+import DetalleDeSerie from './screens/DetalleDeSeries/DetalleDeSeries';
+import Favoritos from './screens/Favoritos/Favoritos';
 import Home from './screens/Home/Home';
+import Header from './componentes/Header/Header';
 import NotFound from './screens/NotFound/NotFound';
-import SearchR from './screens/SearchR/SearchR';
-import VerTodoSeriesMv from './screens/VerTodoSeriesMv/VerTodoSeriesMv';
-import VerTodoSeriesP from './screens/VerTodoSeriesP/VerTodoSeriesP';
-import SearchResults from './componentes/SearchResults/SearchResults';
+import Footer from './componentes/Footer/Footer';
+import SearchResults from './screens/SearchResults/SearchResults'
+import VerTodoSeriesMasValoradas from './screens/VerTodoSeriesMasValoradas/VerTodoSeriesMasValoradas';
+import VerTodoSeriesPopulares from './screens/VerTodoSeriesPopulares/VerTodoSeriesPopulares';
 import "./App.css"
+
 
 
 
 function App() {
   return (
-    <Switch>
+    <div className="App">
 
+     <Header/>   
+    <Switch>
     <Route path="/" exact={true} component={Home}/>
-    <Route path="/search/:query" component={SearchR} />
-    <Route path="/ver-todo-series-populares" component={VerTodoSeriesP} />
-    <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMv} />
-    <Route path= "/detalle/:id" component= {Detalle}/>
+    <Route path="/search/:query" component={SearchResults} />
+    <Route path="/ver-todo-series-populares" component={VerTodoSeriesPopulares} />
+    <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMasValoradas} />
+    <Route path= "/detalle/:id" component= {DetalleDeSerie}/>
     <Route path="/favoritos" component={Favoritos} />
     <Route path="/" component={NotFound}/>
-    
-    </Switch>
+ 
+    </Switch>   
+    <Footer/>
+
+
+    </div>
+
   );
 }
 

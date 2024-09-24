@@ -327,7 +327,29 @@ h1, main {
     background-color: #c2185b;
     color: pink;
 }
+/* boton ver todo */
+.boton-ver-mas {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
 
+.boton-ver-mas button {
+    background-color: #e91e63; /* Color de fondo */
+    color: pink; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold; /* Negrita */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.boton-ver-mas button:hover {
+    background-color: #c2185b; /* Color de fondo al pasar el ratón */
+    color: pink; /* Color del texto al pasar el ratón */
+}
 
 /* detalle de series */
 .detalle-container {

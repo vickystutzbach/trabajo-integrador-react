@@ -10,6 +10,7 @@ class SeriesMasValoradas extends Component {
         this.state = {
             seriesMasValoradas: [],
             isLoading: true
+       
     }
 }
 componentDidMount(){ 

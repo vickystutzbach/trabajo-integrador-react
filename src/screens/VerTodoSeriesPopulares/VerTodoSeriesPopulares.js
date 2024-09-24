@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardSeriesPopulares from "../../componentes/CardSeriesPopulares/CardSeriesPopulares";
 import spinner from "../../img/download.gif";
-import FiltroSeriesPopulares from "../../componentes/FIltro/FIltroSeriesPopulares";
+import FiltroSeriesPopulares from "../../componentes/FIltro/FIltroSeriesPopulares"
 
 class VerTodoSeriesPopulares extends Component {
     constructor(props) {
@@ -9,7 +9,8 @@ class VerTodoSeriesPopulares extends Component {
         this.state = {
             verTodoSeriesPopulares: [],
             isLoading: true,
-            backup: []
+            backup: [],
+            valor: 2
         };
     }
 
@@ -32,6 +33,27 @@ class VerTodoSeriesPopulares extends Component {
             });
     }
 
+    verMass() {
+        fetch(
+            `https://api.themoviedb.org/3/tv/popular?api_key=761d2122b56fefad1019c61f59cfea69&language=en-US&page=${this.state.valor}`
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                this.setState({
+                    verTodoSeriesPopulares: this.state.verTodoSeriesPopulares.concat(data.results),
+                    backup: this.state.backup.concat(data.results),
+                    valor: this.state.valor + 1
+
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                this.setState({ isLoading: false });
+            });
+
+
+    }
+
     filtrarSeriesPopulares(serie) {
         let seriesFiltradas = this.state.backup.filter((s) => {
             let name = s.name || s.original_name; 
@@ -45,6 +67,7 @@ class VerTodoSeriesPopulares extends Component {
     render() {
         console.log(this.state.verTodoSeriesPopulares);
         return (
+            <React.Fragment>
             <div>
                 <h1>Series Populares</h1>
                 <FiltroSeriesPopulares
@@ -64,7 +87,13 @@ class VerTodoSeriesPopulares extends Component {
                         ))}
                     </section>
                 )}
+
             </div>
+            <section className="boton-ver-mas">
+             {this.state.valor < 450 ? <button onClick={()=> this.verMass ()}> Ver mas </button> : "" } 
+             </section>
+     
+            </React.Fragment>          
         );
     }
 }
