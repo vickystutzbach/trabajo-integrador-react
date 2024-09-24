@@ -84,7 +84,7 @@ class VerTodoSeriesMasValoradas extends Component {
                     )}
                 </div>
                 <section className="boton-ver-mas">
-                     {this.state.valor < 450 ? <button onClick={()=> this.verMass ()}> Ver mas </button> : "" } 
+                     {this.state.valor < 100 ? <button onClick={()=> this.verMass ()}> Ver mas </button> : "" } 
                 </section>
                
             </React.Fragment>

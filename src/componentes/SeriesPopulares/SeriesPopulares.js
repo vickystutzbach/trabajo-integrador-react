@@ -27,7 +27,6 @@ componentDidMount(){
     }
 
 render(){
-    console.log(this.state.seriesPopulares)
     return (
     <div>
         <h1>Series Populares</h1>

@@ -34,7 +34,6 @@ componentDidMount(){
 }
 
 render(){
-    console.log(this.state.seriesMasValoradas)
     return (
     <div>
         <h1>Series Más Valoradas</h1>
