@@ -12,7 +12,6 @@ class DetalleDeSerie extends Component {
     }
 
     componentDidMount(){ 
-        console.log ("entra al component")
         const id = this.props.match.params.id; // Obtener detalles de la serie   
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=761d2122b56fefad1019c61f59cfea69`)
         .then((response) => response.json())

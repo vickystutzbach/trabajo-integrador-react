@@ -17,7 +17,7 @@ nav {
     padding: 0 20px;
     background-color: #f2c0d3; 
     color: white;
-    height: 250px; 
+    height: fit-content; 
 }
 
 .nav-link {
@@ -57,10 +57,8 @@ nav ul {
 }
       
 .logo-image {
-    background-color: transparent; 
-    border: none;
     width: 150px; 
-    height: auto;
+    height: 150px;
 }
 
 h1, h2 {

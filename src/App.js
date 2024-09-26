@@ -20,7 +20,7 @@ function App() {
      <Header/>   
     <Switch>
     <Route path="/" exact={true} component={Home}/>
-    <Route path="/search/:query" component={SearchResults} />
+    <Route path="/search/:busqueda" component={SearchResults} />
     <Route path="/ver-todo-series-populares" component={VerTodoSeriesPopulares} />
     <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMasValoradas} />
     <Route path= "/detalle/:id" component= {DetalleDeSeries}/>

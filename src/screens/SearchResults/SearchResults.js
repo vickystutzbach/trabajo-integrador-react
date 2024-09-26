@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import spinner from "../../img/download.gif";
 
 class SearchResults extends Component {
@@ -7,77 +7,51 @@ class SearchResults extends Component {
     super(props);
     this.state = {
       series: [], 
-      isLoading: false,
+      isLoading: true,
     };
   }
 
   componentDidMount() {
-    let query = this.props.query;
-    console.log(query);
-    
-
-    if (query) {
-      this.setState({ isLoading: true });
-
-      fetch(`https://api.themoviedb.org/3/search/tv?query=${query}&api_key=761d2122b56fefad1019c61f59cfea69&language=en-US&page=1`)
-        .then((response) => response.json())
-        .then((data) => {
-          const seriesConVisibilidad = data.results.map(serie => ({ ...serie, verMas: false }));
-          this.setState({
-            series: seriesConVisibilidad,
-            isLoading: false,
-          });
-        })
-        .catch((error) => {
-          console.error(error);
-          this.setState({ isLoading: false });
+    fetch(`https://api.themoviedb.org/3/search/tv?api_key=761d2122b56fefad1019c61f59cfea69&query=${this.props.match.params.busqueda}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        this.setState({
+          series: data.results,
+          isLoading: false,
         });
-    }
-  }
-
-  alternarVisibilidad(index) {
-    const { series } = this.state;
-    if (index >= 0 && index < series.length) {
-      series[index].verMas = !series[index].verMas;
-      this.setState({ series });
-    }
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ isLoading: false });
+      });
   }
 
   render() {
-    let { series, isLoading } = this.state;
-    let query = this.props.match.params.query;
-
     return (
-      <div>
-        <h1>Resultados de búsqueda para: "{query}"</h1>
-        {isLoading ? (
-          <div className="loading-container">
-            <img src={spinner} alt="Cargando..." />
-          </div>
+      <div className="container">
+        {this.state.isLoading ? (
+          <img src={spinner} alt="Cargando..."/>
         ) : (
-          <section className="cards-container">
-            {series && series.length > 0 ? (
-              series.map((serie, index) => (
-                <article key={serie.id} className="character-card">
-                  <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name} />
-                  <h2>{serie.name}</h2>
-                  <p className='more' onClick={() => this.alternarVisibilidad(index)}>
-                    {serie.verMas ? 'Ocultar descripción' : 'Ver descripción'}
-                  </p>
-                  {serie.verMas && (
-                    <section className="extra show">
-                      <p>{serie.overview}</p>
-                    </section>
-                  )}
-                  <p className="more">
-                    <Link to={`/detalle/${serie.id}`}>Ir a detalle</Link>
-                  </p>
-                </article>
-              ))
-            ) : (
-              <p>No se encontraron resultados para "{query}".</p>
-            )}
-          </section>
+        <section className="mostrarFavs">
+          {this.state.series.length > 0 ? (
+            this.state.series.map((serie) => (
+              <article key={serie.id} className="character-card">
+                <img 
+                  src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} 
+                  alt={serie.name} 
+                />
+                <h2>{serie.name}</h2>
+                <p className="more">
+                  <Link to={`/detalle/${serie.id}`}>Ir a detalle</Link>
+                </p>
+              </article>
+            ))
+          ) : (
+            <p>No se encontraron resultados.</p>
+          )}
+        </section>
+
         )}
       </div>
     );
@@ -85,3 +59,4 @@ class SearchResults extends Component {
 }
 
 export default SearchResults;
+
