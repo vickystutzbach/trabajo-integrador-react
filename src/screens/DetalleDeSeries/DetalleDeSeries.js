@@ -12,15 +12,19 @@ class DetalleDeSerie extends Component {
     }
 
     componentDidMount(){ 
-        const id  = this.props.id // Obtener detalles de la serie   
+        console.log ("entra al component")
+        const id = this.props.match.params.id; // Obtener detalles de la serie   
         fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=761d2122b56fefad1019c61f59cfea69`)
         .then((response) => response.json())
         .then((data) => {
+            console.log(data)
             this.setState({
                 DetalleDeSerie: data,
                 isLoading: false,
                 textoFav: this.checkIfFavorito(data.id) ? 'Sacar de Favoritos' : 'Agregar a Favoritos'  
+                
             });
+            
         })
         .catch(error => {
             console.error(error);
@@ -75,7 +79,7 @@ class DetalleDeSerie extends Component {
     }
 
     render() {
-       
+        
 
         return (
             <React.Fragment>
@@ -88,8 +92,13 @@ class DetalleDeSerie extends Component {
 
                     <div>
                         <h1>{DetalleDeSerie.name}</h1>
-                        <img className="detalle-poster" src={`https://image.tmdb.org/t/p/w500${this.state.DetalleDeSerie.poster_path}`} alt={DetalleDeSerie.name} />
-                    </div>
+                        <img 
+                            className="detalle-poster" 
+                            src={`https://image.tmdb.org/t/p/w500${this.state.DetalleDeSerie.poster_path}`} 
+                            alt={this.state.DetalleDeSerie.name} 
+                        />
+
+              </div>
                         <div className="detalle-info">
                    
                     
@@ -98,8 +107,9 @@ class DetalleDeSerie extends Component {
                         <p><strong>Sinópsis:</strong> {this.state.DetalleDeSerie.overview}</p>
                         <p><strong>Género:</strong> 
                         <ul>
-                        {this.state.DetalleDeSerie.genres.map(genre => <li>{genre.name}</li>)}
+                        {this.state.DetalleDeSerie.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
                         </ul>
+
                         </p>
 
                

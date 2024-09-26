@@ -1,5 +1,5 @@
 import {Route, Switch} from 'react-router-dom/cjs/react-router-dom'
-import DetalleDeSerie from './screens/DetalleDeSeries/DetalleDeSeries';
+import DetalleDeSeries from './screens/DetalleDeSeries/DetalleDeSeries';
 import Favoritos from './screens/Favoritos/Favoritos';
 import Home from './screens/Home/Home';
 import Header from './componentes/Header/Header';
@@ -23,7 +23,7 @@ function App() {
     <Route path="/search/:query" component={SearchResults} />
     <Route path="/ver-todo-series-populares" component={VerTodoSeriesPopulares} />
     <Route path="/ver-todo-series-mas-valoradas" component={VerTodoSeriesMasValoradas} />
-    <Route path= "/detalle/:id" component= {DetalleDeSerie}/>
+    <Route path= "/detalle/:id" component= {DetalleDeSeries}/>
     <Route path="/favoritos" component={Favoritos} />
     <Route path="/" component={NotFound}/>
  
