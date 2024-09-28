@@ -201,6 +201,7 @@ h1, main {
     display: flex;
     flex-direction: column;  
     box-sizing: border-box; 
+    height: fit-content;
 }
 
 .character-card img {
@@ -238,6 +239,7 @@ h1, main {
 .more {
     color: palevioletred; 
     text-align: right;
+    height: fit-content;
 }
 
 .delete {
@@ -249,10 +251,12 @@ h1, main {
 .delete:hover {
     text-decoration: underline;
     cursor: pointer;
+    
 }
 
 .show {
     display: block;
+    
 }
 
 .hide {
