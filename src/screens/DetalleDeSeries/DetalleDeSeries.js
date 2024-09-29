@@ -26,7 +26,7 @@ class DetalleDeSerie extends Component {
             
         })
         .catch(error => {
-            console.error(error);
+            console.log(error);
             this.setState({ isLoading: false });
         });
     }

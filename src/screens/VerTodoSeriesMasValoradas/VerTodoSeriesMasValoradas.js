@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardSeriesMasValoradas from "../../componentes/CardSeriesMasValoradas/CardSeriesMasValoradas";
 import spinner from "../../img/download.gif";
-import FiltroSeriesMasValoradas from "../../componentes/FIltro/FiltroSeriesMasValoradas";
+import FiltroSeriesMasValoradas from "../../componentes/Filtro/FiltroSeriesMasValoradas";
 
 class VerTodoSeriesMasValoradas extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class VerTodoSeriesMasValoradas extends Component {
                 });
             })
             .catch((error) => {
-                console.error(error);
+                console.log(error);
                 this.setState({ isLoading: false });
             });
     }
@@ -46,7 +46,7 @@ class VerTodoSeriesMasValoradas extends Component {
                 });
             })
             .catch((error) => {
-                console.error(error);
+                console.log(error);
                 this.setState({ isLoading: false });
             });
 

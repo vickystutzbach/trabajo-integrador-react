@@ -28,7 +28,7 @@ class Favoritos extends Component {
                     isLoading: false
                 });
             }).catch(error => {
-                console.error('Error fetching series:', error);
+                console.log(error);
                 this.setState({ isLoading: false }); // En caso de error, deja de cargar
             });
         } else {

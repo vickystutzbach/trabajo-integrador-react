@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardSeriesPopulares from "../../componentes/CardSeriesPopulares/CardSeriesPopulares";
 import spinner from "../../img/download.gif";
-import FiltroSeriesPopulares from "../../componentes/FIltro/FIltroSeriesPopulares"
+import FiltroSeriesPopulares from "../../componentes/Filtro/FIltroSeriesPopulares"
 
 class VerTodoSeriesPopulares extends Component {
     constructor(props) {
@@ -47,7 +47,7 @@ class VerTodoSeriesPopulares extends Component {
                 });
             })
             .catch((error) => {
-                console.error(error);
+                console.log(error);
                 this.setState({ isLoading: false });
             });
 
