@@ -8,7 +8,6 @@ class SearchResults extends Component {
     this.state = {
       series: [], 
       isLoading: true,
-      verMas: {}, //para almacenar el id de cada carta por separado 
     };
   }
 
@@ -28,12 +27,6 @@ class SearchResults extends Component {
       });
   }
 
-  alternarVisibilidad(id) { //cambio de true a false x id
-    let verMas = this.state.verMas;
-    verMas[id] = !verMas[id];
-    this.setState({verMas : verMas})
-}
-
   render() {
     return (
       <div className="container">
@@ -46,11 +39,7 @@ class SearchResults extends Component {
               <article key={serie.id} className="character-card">
                 <img src={`https://image.tmdb.org/t/p/w342${serie.backdrop_path}`} alt={serie.name}/>
                 <h2>{serie.name}</h2>
-                <p className='more' onClick={() => this.alternarVisibilidad(serie.id)}>Ver descripcion</p> 
-                        <section className={'extra ' + (this.state.verMas[serie.id] ? "show" : "hide")}>
-                            <p>{serie.overview}</p>
-                        </section>
-                <p className="more">
+                <p className='more'>       
                   <Link to={`/detalle/${serie.id}`}>Ir a detalle</Link>
                 </p>
               </article>
