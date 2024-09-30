@@ -443,17 +443,6 @@ h1, main {
     box-shadow: 0 0 10px #ff6f91;
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.02);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
 
 /* Footer */
 footer {
@@ -462,4 +451,28 @@ footer {
     padding: 40px 0;
     color: white;
     width: 100%;
+}
+
+/* Media Querys */
+@media (max-width: 900px) {
+    .main-nav {
+        flex-direction: column;
+    }
+
+    .nav-link {
+        padding: 5% 10%;
+        margin: 2% 5%;
+    }
+
+    .ver-todo-container {
+        margin-top: 10px;
+    }
+
+    .logo-image {
+        width: 80%; 
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
 }
