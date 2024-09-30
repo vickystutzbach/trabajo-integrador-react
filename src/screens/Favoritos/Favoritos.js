@@ -47,21 +47,21 @@ class Favoritos extends Component {
     }
 
     render() {
-        const { favoritos, isLoading } = this.state;
+        
 
         return (
             <React.Fragment>
                 <h1>Mis Series Favoritas</h1>
-                {isLoading ? (
+                {this.state.isLoading ? (
                     <div style={{ textAlign: "center" }}>
                         <img src={spinner} alt="Cargando..." />
                     </div>
                 ) : (
                     <div className="favoritos-lista">
-                        {favoritos.length === 0 ? (
+                        {this.state.favoritos.length === 0 ? (
                             <p>No tienes series en favoritos.</p>
                         ) : (
-                            favoritos.map(serie => (
+                            this.state.favoritos.map(serie => (
                                 <div key={serie.id} className="favorito-item">
                                     <Link to={`/detalle/${serie.id}`}>
                                         <img 
