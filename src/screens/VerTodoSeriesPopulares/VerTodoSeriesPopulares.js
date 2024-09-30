@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardSeriesPopulares from "../../componentes/CardSeriesPopulares/CardSeriesPopulares";
 import spinner from "../../img/download.gif";
-import FiltroSeriesPopulares from "../../componentes/Filtro/FIltroSeriesPopulares"
+import FiltroSeriesPopulares from "../../componentes/Filtro/FiltroSeriesPopulares"
 
 class VerTodoSeriesPopulares extends Component {
     constructor(props) {
